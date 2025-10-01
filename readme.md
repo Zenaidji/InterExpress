@@ -28,28 +28,17 @@ Ce projet est un formulaire dynamique permettant de qualifier un chantier de dé
 - **Angular CLI** installé sur votre machine
 - **npm**
 
-### Lancer le Backend et la Base de Données :
+### Lancer de l'application:
 
 1. Placez-vous dans le dossier racine du projet `/` et exécutez la commande suivante :
 
    ```bash
-    docker-compose up -d
+    docker-compose up
    ```
 
-   Cette commande lance le backend, le restore des données et la base de données à partir du dossier `backup`.
+   Cette commande lance le backend, le restore des données et la base de données à partir du dossier `backup` et lance le frontend.
 
-### Lancement du Frontend
 
-1. Assurez-vous d'avoir les prérequis listés au début de ce document.
-2. Exécutez les commandes suivantes dans le repertoire `/front` pour lancer le frontend :
-
-   ```bash
-   npm install
-   ```
-
-   ```bash
-   ng serve
-   ```
 
 ### Pour Tester le Formulaire
 
