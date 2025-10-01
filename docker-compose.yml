@@ -1,0 +1,39 @@
+version: "3.8"
+
+services:
+  mongo:
+    image: mongo:6
+    container_name: mongo
+    ports:
+      - "27017:27017"
+  mongo-init:
+    image: mongo:6
+    volumes:
+      - ./backup:/backup
+      - mongo_data:/data/db
+    command: mongorestore --host mongo --port 27017 --db travaux --drop /backup/travaux
+
+    depends_on:
+      - mongo
+
+  back:
+    build: ./back
+    container_name: back
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongo
+    command: npm run start
+
+    # Frontend Angular
+
+  front:
+    build: ./front
+    container_name: front
+    ports:
+      - "4200:4200"
+    depends_on:
+      - back
+
+volumes:
+  mongo_data:
